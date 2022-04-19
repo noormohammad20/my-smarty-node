@@ -4,6 +4,7 @@ const app = express()
 const port = process.env.PORT || 5000
 
 app.use(cors())
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('Hello Form My Own Smarty Pant !!')
@@ -32,4 +33,9 @@ app.get('/user/:id', (req, res) => {
 
 app.listen(port, () => {
     console.log('Listing To Port', port)
+})
+
+app.post('/user', (req, res) => {
+    console.log('request', req.body)
+    res.send('post method success')
 })
